@@ -12,8 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 
 public class AddorgNG {
@@ -82,7 +81,7 @@ public class AddorgNG {
 		  refLogin.dologin(driver);
 		  Org.OrgLink(driver).click();
 		  Org.AddOrg(driver).click();
-		  Org.Orgname(driver).sendKeys("my first 25");
+		  Org.Orgname(driver).sendKeys("my first 48");
 		  Thread.sleep(2000);
 		  Org.OrgDiscription(driver).sendKeys("Captured: the Man Behind the Crowdfire App - The Ideal Marketing Agency ");
 		  Thread.sleep(2000);
@@ -92,7 +91,8 @@ public class AddorgNG {
 		  Thread.sleep(2000);
 		  Org.AddImage(driver).click();
 		  Thread.sleep(10000);
-		  Runtime.getRuntime().exec("Screenshot_2.png");
+		  //Runtime.getRuntime().exec("E:/AutoIT/Upload File.exe");
+		  Org.AddImage(driver).sendKeys("C:/Users/anuj/Desktop/Screenshot_1.png");
 		  Thread.sleep(4000);
 		  Org.OrgSave(driver).click();
 		  
@@ -100,7 +100,7 @@ public class AddorgNG {
   
   @BeforeMethod
   public void beforeMethod() {
-	  driver = new FirefoxDriver();
+	  driver = new ChromeDriver();
       driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
       driver.navigate().to("http://test.ravabe.com/");
       driver.manage().window().maximize();
