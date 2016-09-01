@@ -102,19 +102,19 @@ public class Org {
 		   return element;
 	   }
 	 //Save btn
-	 public static WebElement OrgSave (WebDriver driver)
+	 public static WebElement OrgSave(WebDriver driver)
 	   {
 		   element=driver.findElement(By.xpath(orgsavebtnXpath));
 		   return element;
 	   }
 	 //cancel button 
-	 public static WebElement OrgCancel (WebDriver driver)
+	 public static WebElement OrgCancel(WebDriver driver)
 	   {
 		   element=driver.findElement(By.xpath(".//*[@id='Organizationctr']/form/div/div/div/div/button[2]"));
 		   return element;
 	   }
       //Add Image
-	 public static WebElement AddImage (WebDriver driver)
+	 public static WebElement AddImage(WebDriver driver)
 	   {
 		   element=driver.findElement(By.xpath(".//*[@id='file-uploader']/div"));
 		   return element;

@@ -1,7 +1,6 @@
 package TestCases;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
@@ -17,11 +16,12 @@ public class refLogin {
 		 // driver = new ChromeDriver();
 		// driver = new FirefoxDriver();
 	      driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-	      driver.navigate().to("http://test.ravabe.com/");
+	      driver.navigate().to("http://alpha.ravabe.com/");
 	      driver.manage().window().maximize();
-	      Test_Helper.EmailAddress(driver).sendKeys("anuj@ravabe.com");
-		      Test_Helper.LoginPassword(driver).sendKeys("Anuj123456");
+	      Test_Helper.EmailAddress(driver).sendKeys("amit@ravabe.com");
+		      Test_Helper.LoginPassword(driver).sendKeys("Amit1234");
 		      Test_Helper.Login(driver).click();
+		      Test_Helper.publishEnter(driver).click();
 	 }
 	
 
