@@ -46,6 +46,7 @@ public class Login {
 	 			  Test_Helper.EmailAddress(driver).sendKeys("amit@ravabe.com");
 	 		      Test_Helper.LoginPassword(driver).sendKeys("Amit1234");
 	 		      Test_Helper.Login(driver).click();
+	 		      Test_Helper.publishEnter(driver).click();
 	 		      getscreenshot();
 	 		      break; 
 	 		 }

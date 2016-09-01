@@ -15,6 +15,7 @@ public class Test_Helper {
 	private static String emailId;
 	private static String passwordId;
 	private static String loginbtnXpath;
+	private static String publishenterXpath;
 	
 	public static void getPageElements(){
 		Properties prop = new Properties();
@@ -30,7 +31,7 @@ public class Test_Helper {
 			emailId=prop.getProperty("email-id");
 			passwordId=prop.getProperty("password-id");
 			loginbtnXpath=prop.getProperty("login-button-xpath");
-
+            publishenterXpath=prop.getProperty("publish-enter-xpath");
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {
@@ -134,7 +135,15 @@ public class Test_Helper {
 		   return element;
 	   }
 	   
+	   /*
+	    * Landing page
+	    */
 	   
+	   public static WebElement publishEnter(WebDriver driver){
+		   
+		   element=driver.findElement(By.xpath(publishenterXpath));
+		   return element;
+	   }
 	   
 	   /*
 	    * Lost Your password
