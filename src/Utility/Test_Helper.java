@@ -1,5 +1,10 @@
 package Utility;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +12,40 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Test_Helper {
 	private static WebElement element=null;
+	private static String emailId;
+	private static String passwordId;
+	private static String loginbtnXpath;
+	
+	public static void getPageElements(){
+		Properties prop = new Properties();
+		InputStream input= null;
+
+		try {
+
+			input = new FileInputStream("C://Users//amit 1//workspace-mars//rvb//src//properties//login-elements.properties");
+
+			// load a properties file
+			prop.load(input);
+            //get the property value
+			emailId=prop.getProperty("email-id");
+			passwordId=prop.getProperty("password-id");
+			loginbtnXpath=prop.getProperty("login-button-xpath");
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+			if (input != null) {
+				try {
+					input.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	static {
+	    getPageElements();
+	  }
 
 	   /*
 	    * Signup Page
@@ -67,7 +106,7 @@ public class Test_Helper {
 	   //Email address 
 	   public static WebElement EmailAddress(WebDriver driver)
 	   {
-		   element=driver.findElement(By.xpath(".//*[@id='email']"));
+		   element=driver.findElement(By.id(emailId));
 		   return element;
 	   }
      
@@ -75,7 +114,7 @@ public class Test_Helper {
 	   
 	   public static WebElement LoginPassword(WebDriver driver)
 	   {
-		   element=driver.findElement(By.xpath(".//*[@id='password']"));
+		   element=driver.findElement(By.id(passwordId));
 		   return element;
 	   }
 	   
@@ -91,7 +130,7 @@ public class Test_Helper {
 	   
 	   public static WebElement Login(WebDriver driver)
 	   {
-		   element=driver.findElement(By.xpath("html/body/div[3]/div/div/div[1]/div[2]/button"));
+		   element=driver.findElement(By.xpath(loginbtnXpath));
 		   return element;
 	   }
 	   

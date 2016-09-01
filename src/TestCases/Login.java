@@ -20,7 +20,7 @@ public class Login {
     {
             File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
          //The below method will save the screen shot in d drive with name "screenshot.png"
-            FileUtils.copyFile(scrFile, new File("D:\\Screenshots\\Login\\" +System.currentTimeMillis()+ ".png"));
+            FileUtils.copyFile(scrFile, new File("E:\\Screenshots\\ravabe\\Login\\" +System.currentTimeMillis()+ ".png"));
     }
 
 	  public static void main(String[] args) throws Exception {
@@ -28,7 +28,7 @@ public class Login {
 
 		  driver = new ChromeDriver();
 	      driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-	      driver.navigate().to("http://test.ravabe.com/");
+	      driver.navigate().to("http://alpha.ravabe.com/");
 	      driver.manage().window().maximize();
 	     
 	      System.out.print("Would you like to continue(yes/no)::");
@@ -43,8 +43,8 @@ public class Login {
 	 		 switch(choice.toLowerCase()){
 	 		
 	 		 case "1":{
-	 			  Test_Helper.EmailAddress(driver).sendKeys("anuj@ravabe.com");
-	 		      Test_Helper.LoginPassword(driver).sendKeys("Anuj123456");
+	 			  Test_Helper.EmailAddress(driver).sendKeys("amit@ravabe.com");
+	 		      Test_Helper.LoginPassword(driver).sendKeys("Amit1234");
 	 		      Test_Helper.Login(driver).click();
 	 		      getscreenshot();
 	 		      break; 
