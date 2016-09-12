@@ -3,6 +3,7 @@ package Utility;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
@@ -11,12 +12,14 @@ import org.openqa.selenium.WebElement;
 
 public class Org {
 	private static WebElement element=null;
+	private static List<WebElement> lielement=null;
 	private static String orgnameXpath;
 	private static String orgdescriptionXpath;
 	private static String companywebsiteId;
 	private static String companywebsiteaddbtnXpath;
 	private static String orgsavebtnXpath;
-	
+	private static String confirmClass;
+	private static String sweetAlertClass;
 	public static void getPageElements(){
 		Properties prop = new Properties();
 		InputStream input= null;
@@ -33,6 +36,8 @@ public class Org {
 			companywebsiteId=prop.getProperty("company-website-id");
 			companywebsiteaddbtnXpath=prop.getProperty("company-website-addbtn-xpath");
 			orgsavebtnXpath=prop.getProperty("org-savebtn-xpath");
+			confirmClass=prop.getProperty("confirm-class");
+			sweetAlertClass=prop.getProperty("sweet-alert-class");
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {
@@ -119,5 +124,12 @@ public class Org {
 		   element=driver.findElement(By.xpath(".//*[@id='file-uploader']/div"));
 		   return element;
 	   }
-	
+	 public static WebElement ConfirmDialogue(WebDriver driver){
+		 element=driver.findElement(By.className(confirmClass));
+		 return element;
+	 }
+	public static WebElement SweetAlert(WebDriver driver){
+		element=driver.findElement(By.className(sweetAlertClass));
+		return element;
+	}
 }

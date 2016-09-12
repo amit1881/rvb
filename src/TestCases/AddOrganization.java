@@ -1,23 +1,29 @@
 package TestCases;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
 import Utility.Org;
 
 public class AddOrganization {
 	public static WebDriver driver=null;
-	
-	public static void main(String args[]) throws InterruptedException{
-		//driver=new HtmlUnitDriver();
+	@BeforeMethod
+	public void beforeMethod(){
 		driver=new ChromeDriver();
 		refLogin.dologin(driver);
-		Org.Orgname(driver).sendKeys("test organization1");
+	}
+	@Test(enabled=false)
+	public void addOrg() {
+		Org.Orgname(driver).sendKeys("test-organization-september");
 		Org.OrgDiscription(driver).sendKeys("its a social organization");
 		Org.OrgCompanysite(driver).sendKeys("ravabe.com");
 		Org.OrgCompanyadd(driver).click();
@@ -38,8 +44,27 @@ public class AddOrganization {
         //driver.switchTo().window(parent);
          * 
          */
-		driver.findElement(By.className("confirm")).click();
+		//driver.findElement(By.className("confirm")).click();
 		//driver.findElement(By.xpath("html/body/div[5]/div[7]/div/button")).click();
 	}
+	@Test
+	public void addDuplicateOrg() {
+		Org.Orgname(driver).sendKeys("test-organization-september");
+		Org.OrgDiscription(driver).sendKeys("its a social organization");
+		Org.OrgCompanysite(driver).sendKeys("ravabe.com");
+		Org.OrgCompanyadd(driver).click();
+		Org.OrgSave(driver).click();
+		WebElement confirmdialogue=Org.SweetAlert(driver);
+		List<WebElement> confirmdialogue_items=confirmdialogue.findElements(By.tagName("p"));
+		System.out.println(confirmdialogue_items.size());
+		System.out.println(confirmdialogue_items.get(0).getText());
+		Org.ConfirmDialogue(driver).click();
+		
+	}
+	@AfterMethod
+	public void afterMethod(){
+		driver.close();
+	}
+	
 
 }
