@@ -20,6 +20,7 @@ public class Org {
 	private static String orgsavebtnXpath;
 	private static String confirmClass;
 	private static String sweetAlertClass;
+
 	private static String addlinkxpath;
 	private static String addpostxpath;
 	private static String orgsectionxpath;
@@ -27,13 +28,25 @@ public class Org {
 	private static String channelsectionxpath;
 	private static String posttypesectionxpath;
 	
+
+	private static String addbuttonXpath;
+	private static String addprojectXpath;
+	private static String selectbuttonXpath;
+	private static String pronameid;
+	private static String prodescriptionXpath;
+	private static String prochannelXpath;
+	private static String prosaveXpath;
+	private static String orgsectionXpath;
+	private static String proteamid;
+	private static String addemailid;
+
 	public static void getPageElements(){
 		Properties prop = new Properties();
 		InputStream input= null;
 
 		try {
 
-			input = new FileInputStream("C://Users//amit 1//workspace-mars//rvb//src//properties//org-elements.properties");
+			input = new FileInputStream("D://workspace-mars//Ravabe//src//properties//org-elements.properties");
 
 			// load a properties file
 			prop.load(input);
@@ -45,12 +58,26 @@ public class Org {
 			orgsavebtnXpath=prop.getProperty("org-savebtn-xpath");
 			confirmClass=prop.getProperty("confirm-class");
 			sweetAlertClass=prop.getProperty("sweet-alert-class");
+
 			addlinkxpath=prop.getProperty("add-link-xpath");
 			addpostxpath=prop.getProperty("add-post-xpath");
 			orgsectionxpath=prop.getProperty("org-section-xpath");
 			projectsectionxpath=prop.getProperty("project-section-xpath");
 			channelsectionxpath=prop.getProperty("channel-section-xpath");
 			posttypesectionxpath=prop.getProperty("post-type-section-xpath");
+
+			addbuttonXpath=prop.getProperty("add-button-xpath");
+			addprojectXpath=prop.getProperty("add-project-xpath");
+			selectbuttonXpath=prop.getProperty("select-button-xpath");
+			pronameid=prop.getProperty("pro-name-id");
+			prodescriptionXpath=prop.getProperty("pro-description-xpath");
+			prochannelXpath=prop.getProperty("pro-channel-xpath");
+			prosaveXpath=prop.getProperty("pro-save-xpath");
+			orgsectionXpath=prop.getProperty("org-section-xpath");
+			proteamid=prop.getProperty("pro-team-id");
+			addemailid=prop.getProperty("email-add-xpath");
+			
+
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {
@@ -145,6 +172,7 @@ public class Org {
 		element=driver.findElement(By.className(sweetAlertClass));
 		return element;
 	}
+
 	//add post
 	public static WebElement AddLink(WebDriver driver){
 		element=driver.findElement(By.xpath(addlinkxpath));
@@ -171,4 +199,62 @@ public class Org {
 		return element;
 	}
 	
+
+	
+	/*
+	 * Add project 
+	 */
+	 public static WebElement addbtn(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(addbuttonXpath));
+		   return element;
+	   }
+	 public static WebElement addproject(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(addprojectXpath));
+		   return element;
+	   }
+	 public static WebElement selectbtn(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(selectbuttonXpath));
+		   return element;
+	   }
+	 public static WebElement proName(WebDriver driver)
+	   {
+		   element=driver.findElement(By.id(pronameid));
+		   return element;
+	   }
+	 public static WebElement proDescription(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(prodescriptionXpath));
+		   return element;
+	   }
+	 public static WebElement prochannel(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(prochannelXpath));
+		   return element;
+	   }
+	 public static WebElement savebtn(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(prosaveXpath));
+		   return element;
+	   }
+	 public static WebElement orgsection(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(orgsectionXpath));
+		   return element;
+	   }
+	 public static WebElement proteam(WebDriver driver)
+	   {
+		   element=driver.findElement(By.id(proteamid));
+		   return element;
+	   }
+	 public static WebElement addemailbtn(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(addemailid));
+		   return element;
+	   }
+	 
+	 
+
 }
