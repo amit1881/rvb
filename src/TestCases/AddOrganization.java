@@ -1,6 +1,7 @@
 package TestCases;
 
 import java.util.Iterator;
+
 import java.util.List;
 import java.util.Set;
 import org.openqa.selenium.Alert;
@@ -11,6 +12,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 import Utility.Org;
 
@@ -22,12 +26,34 @@ public class AddOrganization {
 		refLogin.dologin(driver);
 	}
 	@Test(enabled=true)
-	public void addOrg() {
-		Org.Orgname(driver).sendKeys("test-organization-september");
-		Org.OrgDiscription(driver).sendKeys("its a social organization");
-		Org.OrgCompanysite(driver).sendKeys("ravabe.com");
-		Org.OrgCompanyadd(driver).click();
-		Org.OrgSave(driver).click();
+	public void addOrg() throws IOException {
+		  System.out.print("Would you like to continue(yes/no)::");
+	 	  InputStreamReader isr=new InputStreamReader(System.in);
+	 	  BufferedReader brd=new BufferedReader(isr);
+	 	  String str=brd.readLine();
+	 	  while(str.equals("yes")){
+	 	  InputStreamReader input= new InputStreamReader(System.in);
+	      BufferedReader br = new BufferedReader(input);
+	      System.out.print("Enter Organization Name::");
+	      String orgname=br.readLine();
+	      System.out.print("Enter Organization Description::");
+	      String orgdesc=br.readLine();
+		  System.out.print("Enter Organization Website::");
+	      String orgsite=br.readLine();
+	      Org.Orgname(driver).sendKeys(orgname);
+		  Org.OrgDiscription(driver).sendKeys(orgdesc);
+		  Org.OrgCompanysite(driver).sendKeys(orgsite);
+		  Org.OrgCompanyadd(driver).click();
+		  Org.OrgSave(driver).click();
+		  System.out.print("Would you like to continue with event::");
+	 		 InputStreamReader isrd=new InputStreamReader(System.in);
+	 		 BufferedReader brdr=new BufferedReader(isrd);
+	 		 str=brdr.readLine();
+	 		 if(str.equals("no")){
+	 			 System.out.println("ok, thanks");
+	 		 }
+	 	  }
+	 	 
 		//driver.switchTo().window(arg0);
 		//driver.findElement(By.className("confirm"));
 		//Alert alert=driver.switchTo().alert();
