@@ -21,7 +21,7 @@ public class AddOrganization {
 		driver=new ChromeDriver();
 		refLogin.dologin(driver);
 	}
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void addOrg() {
 		Org.Orgname(driver).sendKeys("test-organization-september");
 		Org.OrgDiscription(driver).sendKeys("its a social organization");
@@ -47,7 +47,7 @@ public class AddOrganization {
 		//driver.findElement(By.className("confirm")).click();
 		//driver.findElement(By.xpath("html/body/div[5]/div[7]/div/button")).click();
 	}
-	@Test
+	@Test(enabled=false)
 	public void addDuplicateOrg() {
 		Org.Orgname(driver).sendKeys("test-organization-september");
 		Org.OrgDiscription(driver).sendKeys("its a social organization");
