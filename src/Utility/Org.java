@@ -30,6 +30,19 @@ public class Org {
 	private static String orgsectionXpath;
 	private static String proteamid;
 	private static String addemailid;
+	private static String publishXpath;
+	private static String editorgsectionXpath;
+	private static String editprosectionXpath;
+	private static String accessbtnXpath;
+	private static String editnameid;
+	private static String editdescriptionXpath;
+	private static String editchannelXpath;
+	private static String editteamid;
+	private static String editaddbtnXpath;
+	private static String updatebtnXpath;
+	
+	
+	
 	public static void getPageElements(){
 		Properties prop = new Properties();
 		InputStream input= null;
@@ -58,6 +71,16 @@ public class Org {
 			orgsectionXpath=prop.getProperty("org-section-xpath");
 			proteamid=prop.getProperty("pro-team-id");
 			addemailid=prop.getProperty("email-add-xpath");
+			publishXpath=prop.getProperty("publish-project-xpath");
+			editorgsectionXpath=prop.getProperty("editorg-section-xpath");
+			editprosectionXpath=prop.getProperty("editpro-section-xpath");
+			accessbtnXpath=prop.getProperty("access-btn-xpath");
+			editnameid=prop.getProperty("edit-proname-id");
+			editdescriptionXpath=prop.getProperty("edit-prodesc-xpath");
+			editchannelXpath=prop.getProperty("edit-prochannel-xpath");
+			editteamid=prop.getProperty("edit-proteam-id");
+			editaddbtnXpath=prop.getProperty("edit-teamaddbtn-xpath");
+			updatebtnXpath=prop.getProperty("Update-btn-xpath");
 			
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -207,6 +230,58 @@ public class Org {
 		   element=driver.findElement(By.xpath(addemailid));
 		   return element;
 	   }
+	 /*
+	  * Edit project
+	  */
 	 
-	 
+	 public static WebElement publish(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(publishXpath));
+		   return element;
+	   }
+	 public static WebElement editOrgSection(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(editorgsectionXpath));
+		   return element;
+	   }
+	 public static WebElement editprosection(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(editprosectionXpath));
+		   return element;
+	   }
+	 public static WebElement accessbtn(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(accessbtnXpath));
+		   return element;
+	   }
+	 public static WebElement editname(WebDriver driver)
+	   {
+		   element=driver.findElement(By.id(editnameid));
+		   return element;
+	   }
+	 public static WebElement editdescription(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(editdescriptionXpath));
+		   return element;
+	   }
+	 public static WebElement editchannel(WebDriver driver)
+	   {
+		   element=driver.findElement(By.xpath(editchannelXpath));
+		   return element;
+	   }
+	 public static WebElement editemail(WebDriver driver)
+	   {
+		   element=driver.findElement(By.id(editteamid));           
+		   return element;
+	   }
+	 public static WebElement editaddbtn(WebDriver driver)
+	   {
+		   element=driver.findElement(By.id(editaddbtnXpath));           
+		   return element;
+	   }
+	 public static WebElement updatebtn(WebDriver driver)
+	   {
+		   element=driver.findElement(By.id(updatebtnXpath));           
+		   return element;
+	   }
 }

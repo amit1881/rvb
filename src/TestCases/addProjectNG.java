@@ -16,12 +16,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 
 public class addProjectNG {
 	public static  WebDriver driver;
-	
-  @Test(enabled=true)
+	WebDriverWait wait=null;
+  @Test(enabled=false)
   public void testproject() throws Exception {
 	  Org.addbtn(driver).click();
 	  Org.addproject(driver).click();
@@ -67,6 +69,19 @@ public class addProjectNG {
  		 }
 	  
   }
+  @Test(enabled=true)
+  public void editproject() throws Exception {
+	  Org.publish(driver).click();
+	  wait.until(ExpectedConditions.elementToBeClickable(Org.editOrgSection(driver)));
+	  //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='diffmodule-selection']/div[2]/div/div[2]/ul")));
+	  List<WebElement> editorgsection=Org.editOrgSection(driver).findElements(By.tagName("a"));
+	  for(int i=0;i<editorgsection.size();i++){
+		  System.out.println(editorgsection.get(i).getText());
+	  }
+	  editorgsection.get(1).click();
+	  Org.editprosection(driver).findElement(By.linkText("ravabe")).click();;
+	 
+  }
 
   
   
@@ -75,12 +90,14 @@ public class addProjectNG {
   public void beforeMethod(){
 		driver=new ChromeDriver();
 		refLogin.dologin(driver);
+		wait=new WebDriverWait(driver,30);
   }
 
   @AfterMethod(enabled=true)
   public void afterMethod() throws InterruptedException {
 	  //Thread.sleep(2000);
-	  driver.close();
+	  //driver.close();
+	  
   }
 
 }
