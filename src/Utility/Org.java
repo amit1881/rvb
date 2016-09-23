@@ -20,6 +20,15 @@ public class Org {
 	private static String orgsavebtnXpath;
 	private static String confirmClass;
 	private static String sweetAlertClass;
+
+	private static String addlinkxpath;
+	private static String addpostxpath;
+	private static String orgsectionxpath;
+	private static String projectsectionxpath;
+	private static String channelsectionxpath;
+	private static String posttypesectionxpath;
+	
+
 	private static String addbuttonXpath;
 	private static String addprojectXpath;
 	private static String selectbuttonXpath;
@@ -43,6 +52,7 @@ public class Org {
 	
 	
 	
+
 	public static void getPageElements(){
 		Properties prop = new Properties();
 		InputStream input= null;
@@ -61,6 +71,14 @@ public class Org {
 			orgsavebtnXpath=prop.getProperty("org-savebtn-xpath");
 			confirmClass=prop.getProperty("confirm-class");
 			sweetAlertClass=prop.getProperty("sweet-alert-class");
+
+			addlinkxpath=prop.getProperty("add-link-xpath");
+			addpostxpath=prop.getProperty("add-post-xpath");
+			orgsectionxpath=prop.getProperty("org-section-xpath");
+			projectsectionxpath=prop.getProperty("project-section-xpath");
+			channelsectionxpath=prop.getProperty("channel-section-xpath");
+			posttypesectionxpath=prop.getProperty("post-type-section-xpath");
+
 			addbuttonXpath=prop.getProperty("add-button-xpath");
 			addprojectXpath=prop.getProperty("add-project-xpath");
 			selectbuttonXpath=prop.getProperty("select-button-xpath");
@@ -82,6 +100,7 @@ public class Org {
 			editaddbtnXpath=prop.getProperty("edit-teamaddbtn-xpath");
 			updatebtnXpath=prop.getProperty("Update-btn-xpath");
 			
+
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {
@@ -176,6 +195,34 @@ public class Org {
 		element=driver.findElement(By.className(sweetAlertClass));
 		return element;
 	}
+
+	//add post
+	public static WebElement AddLink(WebDriver driver){
+		element=driver.findElement(By.xpath(addlinkxpath));
+		return element;
+	}
+	public static WebElement AddPost(WebDriver driver){
+		element=driver.findElement(By.xpath(addpostxpath));
+		return element;
+	}
+	public static WebElement OrgSection(WebDriver driver){
+		element=driver.findElement(By.xpath(orgsectionxpath));
+		return element;
+	}
+	public static WebElement ProjectSection(WebDriver driver){
+		element=driver.findElement(By.xpath(projectsectionxpath));
+		return element;
+	}
+	public static WebElement ChannelSection(WebDriver driver){
+		element=driver.findElement(By.xpath(channelsectionxpath));
+		return element;
+	}
+	public static WebElement PostTypeSection(WebDriver driver){
+		element=driver.findElement(By.xpath(posttypesectionxpath));
+		return element;
+	}
+	
+
 	
 	/*
 	 * Add project 
@@ -234,6 +281,7 @@ public class Org {
 	  * Edit project
 	  */
 	 
+
 	 public static WebElement publish(WebDriver driver)
 	   {
 		   element=driver.findElement(By.xpath(publishXpath));
@@ -284,4 +332,5 @@ public class Org {
 		   element=driver.findElement(By.id(updatebtnXpath));           
 		   return element;
 	   }
+
 }
