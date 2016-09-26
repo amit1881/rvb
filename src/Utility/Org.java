@@ -324,12 +324,12 @@ public class Org {
 	   }
 	 public static WebElement editaddbtn(WebDriver driver)
 	   {
-		   element=driver.findElement(By.id(editaddbtnXpath));           
+		   element=driver.findElement(By.xpath(editaddbtnXpath));           
 		   return element;
 	   }
 	 public static WebElement updatebtn(WebDriver driver)
 	   {
-		   element=driver.findElement(By.id(updatebtnXpath));           
+		   element=driver.findElement(By.xpath(updatebtnXpath));           
 		   return element;
 	   }
 
