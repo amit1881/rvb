@@ -69,6 +69,7 @@ public class addProjectNG {
  		 }
 	  
   }
+  
   @Test(enabled=true)
   public void editproject() throws Exception {
 	  Org.publish(driver).click();
@@ -79,7 +80,38 @@ public class addProjectNG {
 		  System.out.println(editorgsection.get(i).getText());
 	  }
 	  editorgsection.get(1).click();
-	  Org.editprosection(driver).findElement(By.linkText("ravabe")).click();;
+	  wait.until(ExpectedConditions.elementToBeClickable(Org.editprosection(driver)));
+	 // Org.editprosection(driver).findElement(By.linkText("ravabe")).click();
+	  List<WebElement> editprosection=Org.editprosection(driver).findElements(By.tagName("a"));
+	  for(int i=0;i<editprosection.size();i++){
+		  
+	  }
+	  editprosection.get(1).click();
+	  Org.accessbtn(driver).click();
+	  System.out.print("Would you like to continue(yes/no)::");
+ 	  InputStreamReader isr=new InputStreamReader(System.in);
+ 	  BufferedReader brd=new BufferedReader(isr);
+ 	  String str=brd.readLine();
+ 	  while(str.equals("yes")){
+ 	  InputStreamReader input= new InputStreamReader(System.in);
+      BufferedReader br = new BufferedReader(input);
+      System.out.print("Enter editproject Name::");
+      String editproname=br.readLine();
+      System.out.print("Enter editproject Description::");
+      String editprodesc=br.readLine();
+      Org.editname(driver).sendKeys(editproname);
+      Org.editdescription(driver).sendKeys(editprodesc);
+      System.out.print("Would you like to continue with event::");
+		 InputStreamReader isrd=new InputStreamReader(System.in);
+		 BufferedReader brdr=new BufferedReader(isrd);
+		 str=brdr.readLine();
+		 if(str.equals("no")){
+			 System.out.println("ok, thanks");
+ 	  }
+ 	  }
+      
+      
+	  
 	 
   }
 
