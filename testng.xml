@@ -14,9 +14,6 @@
          <class name="TestCases.Invalidpwd"/>
          <class name="TestCases.RemembermeNG"/>
          <class name="TestCases.Blanklogin"/>
-        
-     
-      
-    </classes>
+   </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
