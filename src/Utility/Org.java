@@ -27,7 +27,7 @@ public class Org {
 	private static String projectsectionxpath;
 	private static String channelsectionxpath;
 	private static String posttypesectionxpath;
-	
+	private static String cancelpostxpath;
 
 	private static String addbuttonXpath;
 	private static String addprojectXpath;
@@ -59,7 +59,7 @@ public class Org {
 
 		try {
 
-			input = new FileInputStream("D://workspace-mars//Ravabe//src//properties//org-elements.properties");
+			input = new FileInputStream("C://Users//amit 1//workspace-mars//rvb//src//properties//org-elements.properties");
 
 			// load a properties file
 			prop.load(input);
@@ -78,6 +78,7 @@ public class Org {
 			projectsectionxpath=prop.getProperty("project-section-xpath");
 			channelsectionxpath=prop.getProperty("channel-section-xpath");
 			posttypesectionxpath=prop.getProperty("post-type-section-xpath");
+			cancelpostxpath=prop.getProperty("cancel-post-xpath");
 
 			addbuttonXpath=prop.getProperty("add-button-xpath");
 			addprojectXpath=prop.getProperty("add-project-xpath");
@@ -221,7 +222,10 @@ public class Org {
 		element=driver.findElement(By.xpath(posttypesectionxpath));
 		return element;
 	}
-	
+	public static WebElement CancelPost(WebDriver driver){
+		element=driver.findElement(By.xpath(cancelpostxpath));
+		return element;
+	}
 
 	
 	/*
