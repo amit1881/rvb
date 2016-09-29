@@ -23,10 +23,20 @@ public class Org {
 
 	private static String addlinkxpath;
 	private static String addpostxpath;
-	private static String orgsectionxpath;
-	private static String projectsectionxpath;
-	private static String channelsectionxpath;
-	private static String posttypesectionxpath;
+	private static String orgsection;
+	private static String projectsection;
+	private static String channelsection;
+	private static String posttypesection;
+	private static String twitter;
+	private static String addpostbtn;
+	private static String cancelpostxpath;
+	private static String textcontainer;
+	private static String postcontainer;
+	private static String publish;
+	private static String savedraft;
+	private static String link;
+	private static String tag;
+	private static String location;
 	
 
 	private static String addbuttonXpath;
@@ -74,10 +84,22 @@ public class Org {
 
 			addlinkxpath=prop.getProperty("add-link-xpath");
 			addpostxpath=prop.getProperty("add-post-xpath");
-			orgsectionxpath=prop.getProperty("org-section-xpath");
-			projectsectionxpath=prop.getProperty("project-section-xpath");
-			channelsectionxpath=prop.getProperty("channel-section-xpath");
-			posttypesectionxpath=prop.getProperty("post-type-section-xpath");
+			orgsection=prop.getProperty("org-section");
+			projectsection=prop.getProperty("project-section");
+			channelsection=prop.getProperty("channel-section");
+			posttypesection=prop.getProperty("post-type-section");
+			twitter=prop.getProperty("twitter-class");
+			addpostbtn=prop.getProperty("addpost-xpath");
+			cancelpostxpath=prop.getProperty("cancel-post-xpath");
+			postcontainer=prop.getProperty("post-container-id");
+			 publish=prop.getProperty("publishbtn-xpath");
+			 savedraft=prop.getProperty("savedraft-xpath");
+			 link=prop.getProperty("addlink-class");
+			 tag=prop.getProperty("addtag-class");
+			 location=prop.getProperty("addlocation-class");
+			 
+			 
+			
 
 			addbuttonXpath=prop.getProperty("add-button-xpath");
 			addprojectXpath=prop.getProperty("add-project-xpath");
@@ -86,7 +108,7 @@ public class Org {
 			prodescriptionXpath=prop.getProperty("pro-description-xpath");
 			prochannelXpath=prop.getProperty("pro-channel-xpath");
 			prosaveXpath=prop.getProperty("pro-save-xpath");
-			orgsectionXpath=prop.getProperty("org-section-xpath");
+		    orgsectionXpath=prop.getProperty("org-section-xpath");
 			proteamid=prop.getProperty("pro-team-id");
 			addemailid=prop.getProperty("email-add-xpath");
 			publishXpath=prop.getProperty("publish-project-xpath");
@@ -206,22 +228,45 @@ public class Org {
 		return element;
 	}
 	public static WebElement OrgSection(WebDriver driver){
-		element=driver.findElement(By.xpath(orgsectionxpath));
+		element=driver.findElement(By.xpath(orgsection));
 		return element;
 	}
 	public static WebElement ProjectSection(WebDriver driver){
-		element=driver.findElement(By.xpath(projectsectionxpath));
+		element=driver.findElement(By.xpath(projectsection));
 		return element;
 	}
 	public static WebElement ChannelSection(WebDriver driver){
-		element=driver.findElement(By.xpath(channelsectionxpath));
+		element=driver.findElement(By.xpath(channelsection));
 		return element;
 	}
 	public static WebElement PostTypeSection(WebDriver driver){
-		element=driver.findElement(By.xpath(posttypesectionxpath));
+		element=driver.findElement(By.xpath(posttypesection));
 		return element;
 	}
-	
+	public static WebElement selectTwitter(WebDriver driver){
+		element=driver.findElement(By.className(twitter));
+		return element;
+	}
+	public static WebElement AddPostBtn(WebDriver driver){
+		element=driver.findElement(By.xpath(addpostbtn));
+		return element;
+	}
+	public static WebElement CancelPost(WebDriver driver){
+		element=driver.findElement(By.xpath(cancelpostxpath));
+		return element;
+	}
+	public static WebElement textarea(WebDriver driver){
+		element=driver.findElement(By.id(textcontainer));
+		return element;
+	}
+	public static WebElement postArea(WebDriver driver){
+		element=driver.findElement(By.id(postcontainer));
+		return element;
+	}
+	public static WebElement publishbtn(WebDriver driver){
+		element=driver.findElement(By.xpath(publish));
+		return element;
+	}
 
 	
 	/*
