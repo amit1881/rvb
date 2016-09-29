@@ -1,6 +1,9 @@
 package TestCases;
 
 import org.testng.annotations.Test;
+
+import Utility.Org;
+
 import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,7 +19,8 @@ public static WebDriver driver=null;
   
   @Test
   public void addPost() {
-	  
+	  Org.addbtn(driver).click();
+	  Org.AddPost(driver).click();
   }
   
   @AfterMethod
