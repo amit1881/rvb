@@ -34,12 +34,12 @@ public static WebDriver driver=null;
 	  for(int i=0;i<orgsection.size();i++){
 		  System.out.println(orgsection.get(i).getText());
 	  }
-	  orgsection.get(2).click();
+	  orgsection.get(0).click();
 	  List<WebElement> prosection=Org.ProjectSection(driver).findElements(By.tagName("a"));
 	  for(int i=0;i<prosection.size();i++){
 		  
 	  }
-	  prosection.get(1).click();
+	  prosection.get(3).click();
 	  List<WebElement> channelsection=Org.ChannelSection(driver).findElements(By.tagName("a"));
 	  for(int i=0;i<channelsection.size();i++){
 		  System.out.println(channelsection.get(i).getText());
@@ -51,7 +51,7 @@ public static WebDriver driver=null;
       BufferedReader br = new BufferedReader(input);
       System.out.print("Enter post description::");
       String description=br.readLine();
-	  Org.postArea(driver).sendKeys(description);
+	  Org.postArea(driver).sendKeys(" "+description);
       Org.publishbtn(driver).click();
 	  
 
