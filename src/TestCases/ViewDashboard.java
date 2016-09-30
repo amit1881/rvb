@@ -27,7 +27,7 @@ public class ViewDashboard {
 		}
   @Test
   public void viewDashboard() throws Exception {
-	  DOMConfigurator.configure("Log4j2.xml");
+	  DOMConfigurator.configure("log.xml");
 	  logger.info("# # # # # # # # # # # # # # # # # # # # # # # # # # # ");
       logger.info("TEST Has Started");
 	  scr=TakeVideo.takeVideo(scr);

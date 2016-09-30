@@ -15,5 +15,4 @@ public class TakeScreenshot {
             //The below method will save the screen shot 
             FileUtils.copyFile(scrFile, new File("E:\\Screenshots\\Add_dataroom\\" +System.currentTimeMillis()+ ".png"));
     }
-
 }
