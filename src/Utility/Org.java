@@ -9,6 +9,7 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class Org {
 	private static WebElement element=null;
@@ -34,9 +35,12 @@ public class Org {
 	private static String postcontainer;
 	private static String publish;
 	private static String savedraft;
-	private static String link;
-	private static String tag;
-	private static String location;
+    private static String attachmentXpath;
+	private static String postlink;
+	private static String insertlink;
+	private static String shortenurlid;
+	private static String tagtext;
+	private static String tagaddbtn;
 	
 
 	private static String addbuttonXpath;
@@ -94,11 +98,12 @@ public class Org {
 			postcontainer=prop.getProperty("post-container-id");
 			 publish=prop.getProperty("publishbtn-xpath");
 			 savedraft=prop.getProperty("savedraft-xpath");
-			 link=prop.getProperty("addlink-class");
-			 tag=prop.getProperty("addtag-class");
-			 location=prop.getProperty("addlocation-class");
-			 
-			 
+			 attachmentXpath=prop.getProperty("attach-xpath");
+			 postlink=prop.getProperty("link-text-xpath");
+			 insertlink=prop.getProperty("link-btn-xpath");
+			 shortenurlid=prop.getProperty("short-url-id");
+			 tagtext=prop.getProperty("tag-text-xpath");
+			 tagaddbtn=prop.getProperty("tag-add-xpath");
 			
 
 			addbuttonXpath=prop.getProperty("add-button-xpath");
@@ -267,7 +272,39 @@ public class Org {
 		element=driver.findElement(By.xpath(publish));
 		return element;
 	}
-
+	public static WebElement linktaglocation(WebDriver driver){
+		element=driver.findElement(By.xpath(attachmentXpath));
+		return element;
+	}
+	
+	
+	public static WebElement Linktxt(WebDriver driver){
+		element=driver.findElement(By.xpath(postlink));
+		return element;
+	}
+	public static WebElement insertbtn(WebDriver driver){
+		element=driver.findElement(By.xpath(insertlink));
+		return element;
+	}
+	public static void bitlydropdown(WebDriver driver){
+		Select dropdown = new Select(driver.findElement(By.id(shortenurlid)));
+		dropdown.selectByIndex(0);
+		
+	}
+	public static void googledropdown(WebDriver driver){
+		Select dropdown = new Select(driver.findElement(By.id(shortenurlid)));
+		dropdown.selectByIndex(1);
+		
+	}
+	public static WebElement Nametag(WebDriver driver){
+		element=driver.findElement(By.xpath(tagtext));
+		return element;
+	}
+	public static WebElement NametagBtn(WebDriver driver){
+		element=driver.findElement(By.xpath(tagaddbtn));
+		return element;
+	}
+	
 	
 	/*
 	 * Add project 

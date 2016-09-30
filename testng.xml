@@ -19,5 +19,6 @@
          <class name="TestCases.Blanklogin"/>
          -->
     </classes>
+
   </test> <!-- Test -->
 </suite> <!-- Suite -->
