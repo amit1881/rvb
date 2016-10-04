@@ -64,8 +64,9 @@ public class Org {
 	private static String editaddbtnXpath;
 	private static String updatebtnXpath;
 	
-	
-	
+	private static String projectfileXpath;
+	private static String projectfileClass;
+	private static String projectteamsectionXpath;
 
 	public static void getPageElements(){
 		Properties prop = new Properties();
@@ -130,7 +131,9 @@ public class Org {
 			editaddbtnXpath=prop.getProperty("edit-teamaddbtn-xpath");
 			updatebtnXpath=prop.getProperty("Update-btn-xpath");
 			
-
+			projectfileXpath=prop.getProperty("project-file-xpath");
+			projectfileClass=prop.getProperty("project-file-class");
+			projectteamsectionXpath=prop.getProperty("project-team-section-xpath");
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {
@@ -337,11 +340,23 @@ public class Org {
 		   element=driver.findElement(By.xpath(prodescriptionXpath));
 		   return element;
 	   }
+	 public static WebElement projectFile(WebDriver driver){
+		 element=driver.findElement(By.xpath(projectfileXpath));
+		 return element;
+	 }
+	 public static WebElement projectAddFile(WebDriver driver){
+		 element=driver.findElement(By.className(projectfileClass));
+		 return element;
+	 }
 	 public static WebElement prochannel(WebDriver driver)
 	   {
 		   element=driver.findElement(By.xpath(prochannelXpath));
 		   return element;
 	   }
+	 public static WebElement projectTeamSection(WebDriver driver){
+		 element=driver.findElement(By.xpath(projectteamsectionXpath));
+		 return element;
+	 }
 	 public static WebElement savebtn(WebDriver driver)
 	   {
 		   element=driver.findElement(By.xpath(prosaveXpath));
