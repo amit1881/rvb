@@ -16,8 +16,8 @@ public class refLogin {
 		  driver.navigate().to("http://alpha.ravabe.com/");
 	      driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	      driver.manage().window().maximize();
-	      Test_Helper.EmailAddress(driver).sendKeys("amit@ravabe.com");
-		      Test_Helper.LoginPassword(driver).sendKeys("Amit1881");
+	      Test_Helper.EmailAddress(driver).sendKeys("anuj@ravabe.com");
+		      Test_Helper.LoginPassword(driver).sendKeys("Anuj1234");
 		      Test_Helper.Login(driver).click();
 		      Test_Helper.publishEnter(driver).click();
 	 }
