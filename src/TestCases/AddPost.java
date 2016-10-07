@@ -18,7 +18,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class AddPost {
 	private static ScreenRecorder scr;
@@ -29,7 +33,7 @@ public static WebDriver driver=null;
 	    driver=new ChromeDriver();
 		refLogin.dologin(driver);
   }
-  @Test(enabled=false)
+  @Test
   public void addPost() throws IOException{
 	  Org.addbtn(driver).click();
 	  Org.AddPost(driver).click();
@@ -39,12 +43,19 @@ public static WebDriver driver=null;
 	  }
 	  orgsection.get(0).click();
 	  List<WebElement> prosection=Org.ProjectSection(driver).findElements(By.tagName("a"));
-	  for(int i=0;i<prosection.size();i++){
-		  
-	  }
-	  prosection.get(3).click();
+	  int i;
+	  for(i=0;i<prosection.size();i++){
+		System.out.println(prosection.get(i).getText());
+		}
+	  //prosection.get(i-1).click();
+	  //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",Org.ProjectSection(driver).findElement(By.linkText("p10")));
+	  //Actions build=new Actions(driver);
+	  //Action mousedown=build.moveToElement(Org.ProjectSection(driver).findElement(By.linkText("p10"))).build();
+	  //mousedown.perform();
+	 
+	  Org.ProjectSection(driver).findElement(By.linkText("PROJECT1")).click();
 	  List<WebElement> channelsection=Org.ChannelSection(driver).findElements(By.tagName("a"));
-	  for(int i=0;i<channelsection.size();i++){
+	  for(i=0;i<channelsection.size();i++){
 		  System.out.println(channelsection.get(i).getText());
 	  }
 	  //channelsection.get(3).click();
@@ -55,6 +66,21 @@ public static WebDriver driver=null;
       System.out.print("Enter post description::");
       String description=br.readLine();
 	  Org.postArea(driver).sendKeys(" "+description);
+	  //firefox specific issue
+	  //driver.switchTo().frame("mce_0_ifr");
+	  //chrome specific issue
+	  ((JavascriptExecutor)driver).executeScript ("document.getElementById('datepicker3').removeAttribute('readonly');");
+	  
+	  //driver.findElement(By.id("mce_0_ifr")).sendKeys("test schedule post");
+	  Org.getCalender(driver).click();
+	  List<WebElement> calenderdiv=Org.datePicker(driver).findElements(By.tagName("a"));
+      for(i=0;i<calenderdiv.size();i++){
+    	  System.out.println(calenderdiv.get(i).getText());
+      }
+	  Org.selectCurrentDate(driver).click();
+	  Org.getTime(driver).click();
+	  List<WebElement> timediv=Org.getTimeSection(driver).findElements(By.tagName("div"));
+	  timediv.get(0).click();
       Org.publishbtn(driver).click();
       
 	  

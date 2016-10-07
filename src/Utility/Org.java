@@ -41,8 +41,14 @@ public class Org {
 	private static String shortenurlid;
 	private static String tagtext;
 	private static String tagaddbtn;
-	
-
+	private static String calenderId;
+	private static String calenderXpath;
+	private static String calenderClass;
+    private static String datepickerId;
+	private static String currentDateClass;
+	private static String timepickerId;
+    private static String timeClass;
+    
 	private static String addbuttonXpath;
 	private static String addprojectXpath;
 	private static String selectbuttonXpath;
@@ -108,8 +114,14 @@ public class Org {
 			 shortenurlid=prop.getProperty("short-url-id");
 			 tagtext=prop.getProperty("tag-text-xpath");
 			 tagaddbtn=prop.getProperty("tag-add-xpath");
-			
-
+			 calenderId=prop.getProperty("calender-id");
+			 calenderXpath=prop.getProperty("calender-xpath");
+			 calenderClass=prop.getProperty("calender-class");
+			 datepickerId=prop.getProperty("date-picker-id");
+			 currentDateClass=prop.getProperty("current-date-class");
+			 timepickerId=prop.getProperty("time-picker-id");
+			 timeClass=prop.getProperty("time-class");
+			 
 			addbuttonXpath=prop.getProperty("add-button-xpath");
 			addprojectXpath=prop.getProperty("add-project-xpath");
 			selectbuttonXpath=prop.getProperty("select-button-xpath");
@@ -130,7 +142,7 @@ public class Org {
 			editteamid=prop.getProperty("edit-proteam-id");
 			editaddbtnXpath=prop.getProperty("edit-teamaddbtn-xpath");
 			updatebtnXpath=prop.getProperty("Update-btn-xpath");
-			
+						
 			projectfileXpath=prop.getProperty("project-file-xpath");
 			projectfileClass=prop.getProperty("project-file-class");
 			projectteamsectionXpath=prop.getProperty("project-team-section-xpath");
@@ -432,5 +444,33 @@ public class Org {
 		   element=driver.findElement(By.xpath(updatebtnXpath));           
 		   return element;
 	   }
-
+     //Schedule post
+	 public static WebElement getCalender(WebDriver driver){
+		 element=driver.findElement(By.id(calenderId));
+		 return element;
+	 }
+	 public static WebElement getCal(WebDriver driver){
+		 element=driver.findElement(By.xpath(calenderXpath));
+		 return element;
+	 }
+	 public static WebElement viewCalender(WebDriver driver){
+		 element=driver.findElement(By.className(calenderClass));
+		 return element;
+	 }
+	 public static WebElement datePicker(WebDriver driver){
+		 element=driver.findElement(By.id(datepickerId));
+		 return element;
+	 }
+	 public static WebElement selectCurrentDate(WebDriver driver){
+		 element=driver.findElement(By.className(currentDateClass));
+		 return element;
+	 }
+	 public static WebElement getTime(WebDriver driver){
+		 element=driver.findElement(By.id(timepickerId));
+		 return element;
+	 }
+	 public static WebElement getTimeSection(WebDriver driver){
+		 element=driver.findElement(By.className(timeClass));
+		 return element;
+	 }
 }
