@@ -29,6 +29,7 @@ public class Org {
 	private static String channelsection;
 	private static String posttypesection;
 	private static String twitter;
+	private static String facebook;
 	private static String addpostbtn;
 	private static String cancelpostxpath;
 	private static String textcontainer;
@@ -41,6 +42,9 @@ public class Org {
 	private static String shortenurlid;
 	private static String tagtext;
 	private static String tagaddbtn;
+	private static String addImage;
+	private static String imagepopupcancelbtn;
+	private static String linkpopupcancelbtn;
 	
 
 	private static String addbuttonXpath;
@@ -76,7 +80,7 @@ public class Org {
 
 
 
-			input = new FileInputStream("C://Users//amit 1//workspace-mars//rvb//src//properties//org-elements.properties");
+			input = new FileInputStream("D://workspace-mars//Ravabe//src//properties//org-elements.properties");
 
 
 			// load a properties file
@@ -97,6 +101,7 @@ public class Org {
 			channelsection=prop.getProperty("channel-section");
 			posttypesection=prop.getProperty("post-type-section");
 			twitter=prop.getProperty("twitter-class");
+			facebook=prop.getProperty("facebook-class");
 			addpostbtn=prop.getProperty("addpost-xpath");
 			cancelpostxpath=prop.getProperty("cancel-post-xpath");
 			postcontainer=prop.getProperty("post-container-id");
@@ -108,7 +113,9 @@ public class Org {
 			 shortenurlid=prop.getProperty("short-url-id");
 			 tagtext=prop.getProperty("tag-text-xpath");
 			 tagaddbtn=prop.getProperty("tag-add-xpath");
-			
+			 addImage=prop.getProperty("add-image-class");
+			 imagepopupcancelbtn=prop.getProperty("image-cancelbtn-xpath");
+			 linkpopupcancelbtn=prop.getProperty("link-cancelbtn-xpath");
 
 			addbuttonXpath=prop.getProperty("add-button-xpath");
 			addprojectXpath=prop.getProperty("add-project-xpath");
@@ -258,6 +265,10 @@ public class Org {
 		element=driver.findElement(By.className(twitter));
 		return element;
 	}
+	public static WebElement selectfacebook(WebDriver driver){
+		element=driver.findElement(By.className(facebook));
+		return element;
+	}
 	public static WebElement AddPostBtn(WebDriver driver){
 		element=driver.findElement(By.xpath(addpostbtn));
 		return element;
@@ -310,7 +321,18 @@ public class Org {
 		element=driver.findElement(By.xpath(tagaddbtn));
 		return element;
 	}
-	
+	public static WebElement ImageUpload (WebDriver driver){
+		element=driver.findElement(By.className(addImage));
+		return element;
+	}
+	public static WebElement ImagecancelBtn(WebDriver driver){
+		element=driver.findElement(By.xpath(imagepopupcancelbtn));
+		return element;
+	}
+	public static WebElement linkcancelBtn(WebDriver driver){
+		element=driver.findElement(By.xpath(linkpopupcancelbtn));
+		return element;
+	}
 	
 	/*
 	 * Add project 
